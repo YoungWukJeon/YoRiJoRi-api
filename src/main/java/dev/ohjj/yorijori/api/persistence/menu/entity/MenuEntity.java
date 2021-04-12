@@ -85,10 +85,10 @@ public class MenuEntity {
                                   boolean exposed, boolean ageRestricted, boolean represented, int viewOrder, long userSeq) {
         final MenuEntity menuEntity = new MenuEntity(restaurantSeq, menuCategorySeq, name, description, price, exposed, ageRestricted, represented, viewOrder);
         final LocalDateTime now = LocalDateTime.now();
-        menuEntity.creator = userSeq;
         menuEntity.createdAt = now;
-        menuEntity.modifier = userSeq;
+        menuEntity.creator = userSeq;
         menuEntity.modifiedAt = now;
+        menuEntity.modifier = userSeq;
         return menuEntity;
     }
 }

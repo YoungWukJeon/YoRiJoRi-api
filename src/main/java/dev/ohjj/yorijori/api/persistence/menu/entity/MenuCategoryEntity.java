@@ -60,10 +60,10 @@ public class MenuCategoryEntity {
     public static MenuCategoryEntity from(long restaurantSeq, String name, boolean exposed, int viewOrder, long userSeq) {
         final MenuCategoryEntity menuCategoryEntity = new MenuCategoryEntity(restaurantSeq, name, exposed, viewOrder);
         final LocalDateTime now = LocalDateTime.now();
-        menuCategoryEntity.creator = userSeq;
         menuCategoryEntity.createdAt = now;
-        menuCategoryEntity.modifier = userSeq;
+        menuCategoryEntity.creator = userSeq;
         menuCategoryEntity.modifiedAt = now;
+        menuCategoryEntity.modifier = userSeq;
         return menuCategoryEntity;
     }
 }
