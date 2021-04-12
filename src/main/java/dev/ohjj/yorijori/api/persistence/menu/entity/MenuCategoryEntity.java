@@ -50,17 +50,17 @@ public class MenuCategoryEntity {
     @Column(name = "modifier", nullable = false)
     private Long modifier;
 
-    public MenuCategoryEntity(long restaurantSeq, String name, boolean exposed, int viewOrder, long userSeq) {
+    public MenuCategoryEntity(long restaurantSeq, String name, boolean exposed, int viewOrder) {
         this.restaurantSeq = restaurantSeq;
         this.name = name;
         this.exposed = exposed;
         this.viewOrder = viewOrder;
-        this.creator = userSeq;
     }
 
     public static MenuCategoryEntity from(long restaurantSeq, String name, boolean exposed, int viewOrder, long userSeq) {
-        final MenuCategoryEntity menuCategoryEntity = new MenuCategoryEntity(restaurantSeq, name, exposed, viewOrder, userSeq);
+        final MenuCategoryEntity menuCategoryEntity = new MenuCategoryEntity(restaurantSeq, name, exposed, viewOrder);
         final LocalDateTime now = LocalDateTime.now();
+        menuCategoryEntity.creator = userSeq;
         menuCategoryEntity.createdAt = now;
         menuCategoryEntity.modifier = userSeq;
         menuCategoryEntity.modifiedAt = now;
